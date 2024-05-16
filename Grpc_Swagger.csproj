@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
+  </PropertyGroup>
+
+  <ItemGroup>
+		<Protobuf Include="Protos\*.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+	
+  <ItemGroup>
+		<!-- Grpc 必须的依赖 -->
+    <PackageReference Include="Grpc.AspNetCore" Version="2.57.0" />
+		<!-- Grpcui 测试工具依赖 -->
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.62.0" />
+    <!-- Grpc 转 REST API 依赖 -->
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="8.0.5" />
+    <!-- Swagger 依赖 -->
+		<PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.8.5" />
+  </ItemGroup>
+
+</Project>

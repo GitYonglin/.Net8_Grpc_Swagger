@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+// Google 定义号的proto，注意这个路径必须必须是Proto文件的根目录，否则会报错
+import "Protos/google/api/annotations.proto"; 
+
+option csharp_namespace = "Grpc_Swagger";
+
+package greet;
+
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply){
+   option (google.api.http) = {
+      get: "/v1/greeter/{name}"
+    };
+  };
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}
